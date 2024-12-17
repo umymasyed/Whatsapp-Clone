@@ -1,0 +1,362 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Define the background property using a CSS variable */
+:root {
+  --wallpaper: url('wallpaper.jpg');
+}
+
+body {
+  background-image: var(--wallpaper);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* If you want to have a full-screen background */
+#chat {
+  height: 100vh; /* Make sure your chat takes up the full height */
+  overflow-y: auto;
+}
+
+/* Theme Variables */
+:root {
+  --bg-color: #121212;
+  --header-color: #075e54;
+  --message-bg: #2a2a2a;
+  --sent-bg: #4caf50;
+  --input-bg: #1e1e1e;
+  --text-color: #ffffff;
+  --input-text-color: #ccc;
+}
+
+[data-theme="light"] {
+  --bg-color: #f3f3f3;
+  --header-color: #4caf50;
+  --message-bg: #e2e2e2;
+  --sent-bg: #d3f8d3;
+  --input-bg: #ffffff;
+  --text-color: #000000;
+  --input-text-color: #666;
+}
+
+[data-theme="light"] .message {
+  background: var(--message-bg);
+  color: var(--text-color);
+}
+
+[data-theme="light"] .message.sent {
+  background: #DCF8C6;
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .message.sent {
+  background: #075E54;
+  color: var(--text-color);
+}
+[data-theme="light"] .profile-popup h2 {
+  color: #000000;
+}
+
+[data-theme="light"] .profile-popup label,
+[data-theme="light"] .profile-popup input {
+  color: #000000;
+  background-color:#f3f3f3;
+}
+
+[data-theme="light"] .profile-popup button {
+  background: #4caf50;
+  color: #fff;
+}
+
+[data-theme="light"] .profile-popup {
+  color: #000;
+  background: #f3f3f3;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: var(--bg-color);
+}
+
+/* Buttons */
+.footer button {
+  margin-left: 10px;
+  border: none;
+  padding: 10px;
+  background: var(--header-color);
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+.footer button:hover {
+  transform: scale(1.1);
+  background: #34b07a;
+}
+
+/* Animations for Theme Switching */
+body {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive Layout */
+.container {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Header */
+.header {
+  background: var(--header-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+}
+.profile {
+  display: flex;
+  align-items: center;
+}
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.profile h1 {
+  font-size: 16px;
+}
+.menu {
+  cursor: pointer;
+  font-size: 20px;
+}
+.theme-toggle {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Chat Section */
+.chat {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background 0.3s ease;
+}
+.message {
+  margin: 10px 0;
+  padding: 6px;
+  border-radius: 8px;
+  max-width: 70%;
+  background: var(--message-bg);
+  color: var(--text-color);
+}
+.message.sent {
+  margin-left: auto;
+  background: var(--sent-bg);
+  color: var(--bg-color);
+}
+.message img,
+.message video {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.timestamp {
+  font-size: 10px;
+  text-align: right;
+}
+
+/* General Popup Styling */
+.profile-popup {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background: #2c2c2c;
+  color: #f5f5f5;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  width: 250px;
+  font-family: 'Arial', sans-serif;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Popup Title */
+.profile-popup h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+/* Labels */
+.profile-popup label {
+  display: block;
+  font-size: 14px;
+  margin: 10px 0 5px;
+  color: #dcdcdc;
+}
+
+/* Inputs */
+.profile-popup input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: #444;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 10px;
+  transition: background 0.3s ease;
+}
+
+.profile-popup input:hover,
+.profile-popup input:focus {
+  background: #555;
+}
+
+/* Save Button */
+.profile-popup button {
+  width: 100%;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.profile-popup button:hover {
+  background: #45a049;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: var(--input-bg);
+}
+.footer input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  margin-left: 5px;
+  background: var(--input-bg);
+  color: var(--input-text-color);
+}
+.footer button {
+  margin-left: 10px;
+  border: none;
+  padding: 10px;
+  background: var(--header-color);
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.footer input[type="file"] {
+  display: none;
+}
+
+/* Profile Customize Popup */
+.profile-popup {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background: var(--message-bg);
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: none;
+  color: var(--text-color);
+}
+.profile-popup input {
+  display: block;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+.message img,
+.message video {
+  max-width: 100%;
+  border-radius: 8px;
+  padding: 0; /* Remove any padding */
+  border: 2px solid #ccc; /* Add a 2px border */
+}
+
+.audio {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+
+
+/* Styling for the audio player */
+audio {
+  width: 100%;
+  max-width: 300px;  /* Adjust this value based on your layout */
+  border-radius: 6px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional styling for the audio controls */
+audio::-webkit-media-controls-panel {
+  background-color: #f9f9f9;  /* Light background for the controls */
+  border-radius: 6px;
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: #4CAF50;  /* Green play button */
+  border-radius: 50%;
+}
+
+audio::-webkit-media-controls-volume-slider {
+  background-color: #f0f0f0;  /* Light background for volume slider */
+}
+
+audio::-webkit-media-controls-volume-slider:disabled {
+  background-color: #ccc;  /* Disabled state for volume slider */
+}
