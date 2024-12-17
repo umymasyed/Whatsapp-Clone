@@ -1,4 +1,4 @@
-/* General Reset */
+ 
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,6 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Define the background property using a CSS variable */
 :root {
   --wallpaper: url('wallpaper.jpg');
 }
@@ -24,13 +23,11 @@ body {
   background-repeat: no-repeat;
 }
 
-/* If you want to have a full-screen background */
 #chat {
-  height: 100vh; /* Make sure your chat takes up the full height */
+  height: 100vh;
   overflow-y: auto;
 }
 
-/* Theme Variables */
 :root {
   --bg-color: #121212;
   --header-color: #075e54;
@@ -65,6 +62,7 @@ body {
   background: #075E54;
   color: var(--text-color);
 }
+
 [data-theme="light"] .profile-popup h2 {
   color: #000000;
 }
@@ -85,7 +83,6 @@ body {
   background: #f3f3f3;
 }
 
-/* Layout */
 .container {
   display: flex;
   flex-direction: column;
@@ -96,7 +93,6 @@ body {
   background: var(--bg-color);
 }
 
-/* Buttons */
 .footer button {
   margin-left: 10px;
   border: none;
@@ -112,18 +108,15 @@ body {
   background: #34b07a;
 }
 
-/* Animations for Theme Switching */
 body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Responsive Layout */
 .container {
   max-width: 100%;
   width: 100%;
 }
 
-/* Header */
 .header {
   background: var(--header-color);
   color: var(--text-color);
@@ -154,7 +147,6 @@ body {
   font-size: 18px;
 }
 
-/* Chat Section */
 .chat {
   flex: 1;
   padding: 10px;
@@ -187,7 +179,6 @@ body {
   text-align: right;
 }
 
-/* General Popup Styling */
 .profile-popup {
   position: absolute;
   top: 60px;
@@ -203,13 +194,11 @@ body {
   animation: fadeIn 0.3s ease;
 }
 
-/* Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Popup Title */
 .profile-popup h2 {
   font-size: 18px;
   font-weight: bold;
@@ -219,7 +208,6 @@ body {
   padding-bottom: 5px;
 }
 
-/* Labels */
 .profile-popup label {
   display: block;
   font-size: 14px;
@@ -227,7 +215,6 @@ body {
   color: #dcdcdc;
 }
 
-/* Inputs */
 .profile-popup input {
   width: 100%;
   padding: 8px;
@@ -245,7 +232,6 @@ body {
   background: #555;
 }
 
-/* Save Button */
 .profile-popup button {
   width: 100%;
   background: #4caf50;
@@ -262,7 +248,6 @@ body {
   background: #45a049;
 }
 
-/* Footer */
 .footer {
   display: flex;
   align-items: center;
@@ -292,7 +277,6 @@ body {
   display: none;
 }
 
-/* Profile Customize Popup */
 .profile-popup {
   position: absolute;
   top: 60px;
@@ -314,8 +298,8 @@ body {
 .message video {
   max-width: 100%;
   border-radius: 8px;
-  padding: 0; /* Remove any padding */
-  border: 2px solid #ccc; /* Add a 2px border */
+  padding: 0;
+  border: 2px solid #ccc;
 }
 
 .audio {
@@ -328,12 +312,9 @@ body {
   color: #888;
 }
 
-
-
-/* Styling for the audio player */
 audio {
   width: 100%;
-  max-width: 300px;  /* Adjust this value based on your layout */
+  max-width: 300px;
   border-radius: 6px;
   margin-top: 5px;
   border: 1px solid #ccc;
@@ -342,21 +323,21 @@ audio {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Additional styling for the audio controls */
 audio::-webkit-media-controls-panel {
-  background-color: #f9f9f9;  /* Light background for the controls */
+  background-color: #f9f9f9;
   border-radius: 6px;
 }
 
 audio::-webkit-media-controls-play-button {
-  background-color: #4CAF50;  /* Green play button */
+  background-color: #4CAF50;
   border-radius: 50%;
 }
 
 audio::-webkit-media-controls-volume-slider {
-  background-color: #f0f0f0;  /* Light background for volume slider */
+  background-color: #f0f0f0;
 }
 
 audio::-webkit-media-controls-volume-slider:disabled {
-  background-color: #ccc;  /* Disabled state for volume slider */
+  background-color: #ccc;
 }
+
