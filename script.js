@@ -1,17 +1,14 @@
- let recorder, audioChunks;
+let recorder, audioChunks;
 const chat = document.getElementById("chat");
-
 let isRecording = false;
 const recordButton = document.getElementById("recordButton");
 
 function toggleRecording() {
   if (isRecording) {
-    // Stop recording and send the audio
     recorder.stop();
     isRecording = false;
-    recordButton.textContent = "🎙"; // Change button text to "Start Recording"
+    recordButton.textContent = "🎙";
   } else {
-    // Start recording
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then(stream => {
         recorder = new MediaRecorder(stream);
@@ -19,9 +16,8 @@ function toggleRecording() {
         audioChunks = [];
         recorder.ondataavailable = event => audioChunks.push(event.data);
         recorder.onstop = sendAudio;
-
         isRecording = true;
-        recordButton.textContent = "⏹️"; // Change button text to "Stop Recording"
+        recordButton.textContent = "⏹️";
       })
       .catch(() => alert("Microphone access denied!"));
   }
@@ -45,7 +41,6 @@ function getCurrentTime() {
   return `${hours}:${minutes}`;
 }
 
-// Set Wallpaper (without localStorage)
 function setWallpaper(event) {
   const file = event.target.files[0];
   if (file) {
@@ -70,33 +65,16 @@ function updateWallpaper(event) {
 }
 
 function toggleMenu() {}
-
 function startRecording() {}
-
 function sendMessage() {}
-
 function showTyping() {}
-
 function toggleTheme() {}
-
 function updateProfile() {}
 
 const status = document.getElementById("status");
 const profilePopup = document.getElementById("profilePopup");
-
-// Array of random auto-replies
 const randomReplies = [
   "Hello! How can I help? 😊",
-  "Sounds good!",
-  "Can you clarify that?",
-  "Haha, that's funny! 😄",
-  "I'm here if you need me.",
-  "Interesting... tell me more!",
-  "What’s your plan for today?",
-  "I understand! 👍",
-  "Wow, that’s amazing!",
-  "Let's keep this conversation going!",
-   "Hello! How can I help? 😊",
   "Sounds good!",
   "Can you clarify that?",
   "Haha, that's funny! 😄",
@@ -118,13 +96,11 @@ const randomReplies = [
   "How's your day going?"
 ];
 
-// Toggle Profile Menu
 function toggleMenu() {
   profilePopup.style.display =
     profilePopup.style.display === "block" ? "none" : "block";
 }
 
-// Update Profile
 function updateProfile() {
   const name = document.getElementById("nameInput").value;
   const picInput = document.getElementById("picInput").files[0];
@@ -139,12 +115,10 @@ function updateProfile() {
   toggleMenu();
 }
 
-// Send Message Function
 function sendMessage() {
   const input = document.getElementById("messageInput");
   const message = input.value.trim();
   if (message) {
-    // Add user message
     chat.innerHTML += `
       <div class="message sent">
         ${message}
@@ -153,18 +127,13 @@ function sendMessage() {
     input.value = "";
     status.textContent = "Online";
     chat.scrollTop = chat.scrollHeight;
-
-    // Simulate auto-reply after 1 second
     setTimeout(autoReply, 1000);
   }
 }
 
-// Auto-Reply Function
 function autoReply() {
   const randomIndex = Math.floor(Math.random() * randomReplies.length);
   const replyMessage = randomReplies[randomIndex];
-
-  // Add auto-reply message
   chat.innerHTML += `
     <div class="message received">
       ${replyMessage}
@@ -173,7 +142,6 @@ function autoReply() {
   chat.scrollTop = chat.scrollHeight;
 }
 
-// File Upload
 document.getElementById("fileInput").addEventListener("change", (event) => {    
   const file = event.target.files[0];
   if (file) {
@@ -204,7 +172,6 @@ document.getElementById("fileInput").addEventListener("change", (event) => {
   }
 });
 
-// Typing Indicator
 let typingTimer;
 function showTyping() {
   status.textContent = "Typing...";
@@ -214,7 +181,6 @@ function showTyping() {
   }, 2000);
 }
 
-// Get Current Time
 function getCurrentTime() {
   const now = new Date();
   const hours = now.getHours();
@@ -222,7 +188,6 @@ function getCurrentTime() {
   return `${hours}:${minutes}`;
 }
 
-// Theme Toggle with LocalStorage
 function toggleTheme() {
   const currentTheme = document.body.getAttribute("data-theme");
   const newTheme = currentTheme === "dark" ? "light" : "dark";
@@ -230,7 +195,6 @@ function toggleTheme() {
   localStorage.setItem("theme", newTheme);
 }
 
-// Load Theme from LocalStorage
 document.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme") || "dark";
   document.body.setAttribute("data-theme", savedTheme);
