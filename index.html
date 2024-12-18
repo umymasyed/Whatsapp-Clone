@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advanced Chat UI</title>
+  <title>WhatsApp Chat UI</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-theme="dark">
   <div class="container">
-    <!-- Header -->
     <div class="header">
       <div class="profile">
         <img id="profile-pic" src="whatsapp.jpg" alt="Profile Picture">
@@ -22,7 +21,6 @@
       </div>
     </div>
 
-    <!-- Chat Section -->
     <div class="chat" id="chat">
       <div class="message received">
         Hey there!
@@ -30,39 +28,26 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
-  <!-- File Input -->
-  <input type="file" id="fileInput" accept="image/*,video/*,.pdf">
-  <button onclick="document.getElementById('fileInput').click()">📎</button>
+      <input type="file" id="fileInput" accept="image/*,video/*,.pdf">
+      <button onclick="document.getElementById('fileInput').click()">📎</button>
+      <button id="recordButton" onclick="toggleRecording()">🎙</button>
+      <input type="text" id="messageInput" placeholder="Type a message..." oninput="showTyping()">
+      <button onclick="sendMessage()">▶</button>
+    </div>
 
-  <!-- Start/Stop Recording Button -->
-  <button id="recordButton" onclick="toggleRecording()">🎙</button>
-
-  <!-- Message Input -->
-  <input type="text" id="messageInput" placeholder="Type a message..." oninput="showTyping()">
-
-  <!-- Send Message Button -->
-  <button onclick="sendMessage()">▶</button></button>
-</div>
-
-    <!-- Profile Customize Popup -->
     <div class="profile-popup" id="profilePopup">
       <h2>Settings</h2>
       <span class="theme-toggle" onclick="toggleTheme()">🌙</span>
       <label>Change Name</label>
       <input type="text" id="nameInput" placeholder="Enter New Name">
-      
       <label>Change Profile Picture</label>
       <input type="file" id="picInput" accept="image/*">
-
       <label>Change Wallpaper</label>
       <input type="file" id="wallpaperInput" accept="image/*" onchange="updateWallpaper(event)">
-      
       <button onclick="updateProfile()">Save Changes</button>
     </div>
   </div>
-
   <script src="script.js" defer></script>
 </body>
 </html>
