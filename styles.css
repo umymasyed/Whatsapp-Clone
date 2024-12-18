@@ -340,4 +340,6 @@ audio::-webkit-media-controls-volume-slider {
 audio::-webkit-media-controls-volume-slider:disabled {
   background-color: #ccc;
 }
-
+[data-theme="light"] .header {
+  background-color: #ffffff;
+}
