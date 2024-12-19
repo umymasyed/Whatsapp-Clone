@@ -1,5 +1,6 @@
 let recorder, audioChunks;
 const chat = document.getElementById("chat");
+
 let isRecording = false;
 const recordButton = document.getElementById("recordButton");
 
@@ -16,6 +17,7 @@ function toggleRecording() {
         audioChunks = [];
         recorder.ondataavailable = event => audioChunks.push(event.data);
         recorder.onstop = sendAudio;
+
         isRecording = true;
         recordButton.textContent = "⏹️";
       })
@@ -59,20 +61,26 @@ function updateWallpaper(event) {
     reader.onload = function(e) {
       document.getElementById('chat').style.backgroundImage = `url(${e.target.result})`;
       document.body.style.backgroundImage = `url(${e.target.result})`;
-    }
+    };
     reader.readAsDataURL(file);
   }
 }
 
 function toggleMenu() {}
+
 function startRecording() {}
+
 function sendMessage() {}
+
 function showTyping() {}
+
 function toggleTheme() {}
+
 function updateProfile() {}
 
 const status = document.getElementById("status");
 const profilePopup = document.getElementById("profilePopup");
+
 const randomReplies = [
   "Hello! How can I help? 😊",
   "Sounds good!",
@@ -181,13 +189,6 @@ function showTyping() {
   }, 2000);
 }
 
-function getCurrentTime() {
-  const now = new Date();
-  const hours = now.getHours();
-  const minutes = now.getMinutes().toString().padStart(2, "0");
-  return `${hours}:${minutes}`;
-}
-
 function toggleTheme() {
   const currentTheme = document.body.getAttribute("data-theme");
   const newTheme = currentTheme === "dark" ? "light" : "dark";
@@ -199,6 +200,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme") || "dark";
   document.body.setAttribute("data-theme", savedTheme);
 });
+
+function showNotification(message) {
+  if (!notificationsEnabled) return;
+  const notificationPopup = document.getElementById("notification-popup");
+  notificationPopup.textContent = `New Message: ${message}`;
+  notificationPopup.style.display = "block";
+  setTimeout(() => {
+    notificationPopup.style.display = "none";
+  }, 3000);
+}
+
+let notificationsEnabled = true;
+function toggleNotifications() {
+  notificationsEnabled = !notificationsEnabled;
+  const notificationToggle = document.getElementById("notificationToggle");
+  notificationToggle.textContent = notificationsEnabled ? "Notifications: ON" : "Notifications: OFF";
+}
+
+
 function showNotification(message) {
   if (!notificationsEnabled) return;
   
@@ -208,13 +228,15 @@ function showNotification(message) {
 
   setTimeout(() => {
     notificationPopup.style.display = "none";
-  }, 3000);
+  }, 3000); 
 }
+
 
 function autoReply() {
   const randomIndex = Math.floor(Math.random() * randomReplies.length);
   const replyMessage = randomReplies[randomIndex];
 
+  
   chat.innerHTML += `
     <div class="message received">
       ${replyMessage}
@@ -222,13 +244,6 @@ function autoReply() {
     </div>`;
   chat.scrollTop = chat.scrollHeight;
 
+  
   showNotification(replyMessage);
-}
-
-let notificationsEnabled = true;
-
-function toggleNotifications() {
-  notificationsEnabled = !notificationsEnabled;
-  const notificationToggle = document.getElementById("notificationToggle");
-  notificationToggle.textContent = notificationsEnabled ? "Notifications: ON" : "Notifications: OFF";
 }
