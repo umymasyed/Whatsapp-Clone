@@ -199,3 +199,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme") || "dark";
   document.body.setAttribute("data-theme", savedTheme);
 });
+function showNotification(message) {
+  if (!notificationsEnabled) return;
+  
+  const notificationPopup = document.getElementById("notification-popup");
+  notificationPopup.textContent = `New Message: ${message}`;
+  notificationPopup.style.display = "block";
+
+  setTimeout(() => {
+    notificationPopup.style.display = "none";
+  }, 3000);
+}
+
+function autoReply() {
+  const randomIndex = Math.floor(Math.random() * randomReplies.length);
+  const replyMessage = randomReplies[randomIndex];
+
+  chat.innerHTML += `
+    <div class="message received">
+      ${replyMessage}
+      <div class="timestamp">${getCurrentTime()}</div>
+    </div>`;
+  chat.scrollTop = chat.scrollHeight;
+
+  showNotification(replyMessage);
+}
+
+let notificationsEnabled = true;
+
+function toggleNotifications() {
+  notificationsEnabled = !notificationsEnabled;
+  const notificationToggle = document.getElementById("notificationToggle");
+  notificationToggle.textContent = notificationsEnabled ? "Notifications: ON" : "Notifications: OFF";
+}
