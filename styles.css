@@ -343,3 +343,48 @@ audio::-webkit-media-controls-volume-slider:disabled {
 [data-theme="light"] .header {
   background-color: #ffffff;
 }
+.notification-popup {
+  position: fixed;
+  top: 10px;
+  left: 15%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1000;
+  display: none;
+  animation: fade-in-out 3s ease-in-out;
+}
+
+@keyframes fade-in-out {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+.theme-toggle {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin:6px;
+  position :relative ;
+  left:36%;
+}
+
+.theme-toggle:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.profile-popup p{
+    text-align:center ;
+    font-size :10px;
+    margin-top :7px;
+}
