@@ -7,12 +7,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-theme="dark">
-  <!-- Notification Popup -->
   <div id="notification-popup" class="notification-popup"></div>
-
-  <!-- Main Container -->
   <div class="container">
-    <!-- Header -->
     <div class="header">
       <div class="profile">
         <img id="profile-pic" src="whatsapp.jpg" alt="Profile Picture">
@@ -25,8 +21,6 @@
         <div class="menu" onclick="toggleMenu()">⋮</div>
       </div>
     </div>
-
-    <!-- Chat Section -->
     <div class="chat" id="chat">
       <div class="message received">
         Hey there!
@@ -34,16 +28,14 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
-      <input type="file" id="fileInput" accept="image/*,video/*,.pdf" hidden>
+      <input type="file" id="fileInput" accept="image/*,video/*,.pdf">
       <button onclick="document.getElementById('fileInput').click()">📎</button>
       <button id="recordButton" onclick="toggleRecording()">🎙</button>
       <input type="text" id="messageInput" placeholder="Type a message..." oninput="showTyping()">
       <button onclick="sendMessage()">▶</button>
     </div>
 
-    <!-- Profile Popup -->
     <div class="profile-popup" id="profilePopup">
       <h2>Settings</h2>
       <button id="notificationToggle" onclick="toggleNotifications()">Notifications: ON</button>
@@ -58,7 +50,6 @@
       <p>Created by Umyma Syed</p>
     </div>
   </div>
-
   <script src="script.js" defer></script>
 </body>
 </html>
