@@ -25,6 +25,7 @@ function toggleRecording() {
   }
 }
 
+
 function sendAudio() {
   const audioBlob = new Blob(audioChunks);
   const audioURL = URL.createObjectURL(audioBlob);
